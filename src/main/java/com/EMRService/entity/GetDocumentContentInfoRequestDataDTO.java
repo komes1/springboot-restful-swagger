@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class GetDocumentContentInfoRequestDataDTO {
     /**
-     * 患者唯一标识
+     * 患者唯一标识1
      * CIS EMRXH
      */
     private String patientId;
