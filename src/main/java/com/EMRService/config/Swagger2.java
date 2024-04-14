@@ -13,13 +13,11 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * 
-* @Title: Swagger2
-* @Description: 
-* Swagger2配置
-* @Version:1.0.0  
-* @author pancm
-* @date 2018年5月29日
+ * @author x.yh
+ * @Title: Swagger2
+ * @Description: Swagger2配置
+ * @Version:1.0.0
+ * @date 2024年4月10日
  */
 @Configuration
 @EnableSwagger2
@@ -39,7 +37,6 @@ public class Swagger2 {
         return new ApiInfoBuilder()
                 .title("Spring Boot中使用Swagger2构建RESTful APIs")
                 .description("病历记录的增删改查")
-                .termsOfServiceUrl("http://www.baidu.com/")
                 .contact("x.yh")
                 .version("1.0")
                 .build();

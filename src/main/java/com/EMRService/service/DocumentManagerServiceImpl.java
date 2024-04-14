@@ -1,26 +1,31 @@
 package com.EMRService.service;
 
-import java.math.BigDecimal;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.EMRService.dao.DocumentManagerDao;
-import com.EMRService.entity.User;
 
 @Service
 public class DocumentManagerServiceImpl implements DocumentManagerService {
-    @Autowired
-    private DocumentManagerDao documentManagerDao;
+    /*private DocumentManagerDao documentManagerDao=new DocumentManagerDao();*/
 
-    @Override
-    public List<User> selectInfoResult() {
-        return documentManagerDao.selectInfo();
+    private final DocumentManagerDao documentManagerDao;
+
+    public DocumentManagerServiceImpl(DocumentManagerDao documentManagerDao) {
+        this.documentManagerDao = documentManagerDao;
     }
 
     @Override
-    public String getDocumentContentInfo(BigDecimal emrxh, BigDecimal documentId, String isbcl) {
-        return documentManagerDao.getDocumentContentInfo(emrxh,documentId,isbcl);
+    public String getDocumentContentInfo(Long emrxh, Long documentId, String isbcl) {
+        return documentManagerDao.getDocumentContentInfo(emrxh, documentId, isbcl);
+    }
+
+    @Override
+    public Boolean delDocument(Long documentId, String isbcl) {
+        return documentManagerDao.delDocument(documentId, isbcl);
+    }
+
+    @Override
+    public Boolean updateDocumentContentInfo(Long emrxh, Long documentId, String isbcl, String ysjdm, String content) {
+        return documentManagerDao.updateDocumentContentInfo(emrxh, documentId, isbcl, ysjdm, content);
     }
 }

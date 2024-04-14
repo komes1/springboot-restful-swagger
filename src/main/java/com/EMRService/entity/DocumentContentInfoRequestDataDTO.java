@@ -3,9 +3,9 @@ package com.EMRService.entity;
 import lombok.Data;
 
 @Data
-public class GetDocumentContentInfoRequestDataDTO {
+public class DocumentContentInfoRequestDataDTO {
     /**
-     * 患者唯一标识1
+     * 患者唯一标识
      * CIS EMRXH
      */
     private String patientId;
@@ -32,4 +32,12 @@ public class GetDocumentContentInfoRequestDataDTO {
     private String operatorId;
 
     private String operatorName;
+    /**
+     * 元素内容
+     */
+    private String elementValue;
+    /**
+     * 元素key
+     */
+    private String elementKey;
 }
