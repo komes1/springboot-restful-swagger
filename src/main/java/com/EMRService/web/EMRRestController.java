@@ -4,15 +4,15 @@ import com.EMRService.entity.*;
 import com.EMRService.service.DiagnoseService;
 import com.EMRService.service.DocumentManagerService;
 import com.EMRService.service.PatientInfoService;
+import com.EMRService.service.UserInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.ApiOperation;
+
+import java.util.List;
 
 
 /**
@@ -30,6 +30,8 @@ public class EMRRestController {
     private PatientInfoService patientInfoService;
     @Autowired
     private DiagnoseService diagnoseService;
+    @Autowired
+    private UserInfoService userInfoService;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @ApiOperation(value = "新增患者诊断", notes = "新增患者诊断")
@@ -227,5 +229,14 @@ public class EMRRestController {
         return result;
     }
 
+    @ApiOperation(value = "获取所有用户信息", notes = "获取所有用户信息")
+    @GetMapping("/GetAllUserInfos")
+    public List<UserInfoDTO> GetAllUserInfos() {
+        //logger.info("开始获取所有用户信息，请求参数:{}", requestDataDTO);
+        //List<UserInfoDTO> result = new List<UserInfoDTO>();
+
+        List<UserInfoDTO> result = userInfoService.getAllUserInfos();
+        return result;
+    }
 
 }
